@@ -4,7 +4,6 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 
 type ChatMessage = {
   id: string;

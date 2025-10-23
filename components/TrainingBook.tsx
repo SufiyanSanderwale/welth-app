@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { BookOpen, PlusCircle, PieChart, Bot, Shield, Wallet, FileDown, CircleDollarSign, TrendingUp, Lightbulb } from "lucide-react";
 import Link from "next/link";
 
@@ -49,20 +48,35 @@ export default function TrainingBook() {
       </AnimatePresence>
 
       <div className="mt-6 flex items-center justify-between">
-        <Button variant="outline" onClick={() => setIndex((i) => Math.max(0, i - 1))} disabled={!canPrev}>Previous</Button>
+        <button 
+          className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+          onClick={() => setIndex((i) => Math.max(0, i - 1))} 
+          disabled={!canPrev}
+        >
+          Previous
+        </button>
         <div className="text-sm text-muted-foreground">Page {index + 1} of {total}</div>
         {canNext ? (
-          <Button onClick={() => setIndex((i) => Math.min(total - 1, i + 1))}>Next</Button>
+          <button 
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+            onClick={() => setIndex((i) => Math.min(total - 1, i + 1))}
+          >
+            Next
+          </button>
         ) : (
-          <Link href="/dashboard"><Button>Finish Training</Button></Link>
+          <Link href="/dashboard">
+            <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">
+              Finish Training
+            </button>
+          </Link>
         )}
       </div>
 
       {/* Floating Help button opens Chatbot */}
       <Link href="/chatbot" className="fixed bottom-6 right-6">
-        <Button className="rounded-full h-12 w-12 p-0 shadow-lg" title="Need Help?">
+        <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 rounded-full h-12 w-12 p-0 shadow-lg" title="Need Help?">
           <Bot />
-        </Button>
+        </button>
       </Link>
     </div>
   );
