@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "DIRECT_URL": "@direct_url",
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": "@clerk_publishable_key",
+    "CLERK_SECRET_KEY": "@clerk_secret_key",
+    "NEXT_PUBLIC_CLERK_SIGN_IN_URL": "/sign-in",
+    "NEXT_PUBLIC_CLERK_SIGN_UP_URL": "/sign-up",
+    "NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL": "/dashboard",
+    "NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL": "/dashboard",
+    "GEMINI_API_KEY": "@gemini_api_key",
+    "RESEND_API_KEY": "@resend_api_key",
+    "ARCJET_KEY": "@arcjet_key",
+    "FMP_API_KEY": "@fmp_api_key",
+    "INNGEST_EVENT_KEY": "@inngest_event_key",
+    "INNGEST_SIGNING_KEY": "@inngest_signing_key"
+  },
+  "functions": {
+    "app/api/inngest/route.js": {
+      "maxDuration": 30
+    }
+  }
+}
