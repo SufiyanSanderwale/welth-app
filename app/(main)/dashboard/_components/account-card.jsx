@@ -6,9 +6,6 @@ import { useEffect } from "react";
 import useFetch from "@/hooks/use-fetch";
 import {
   Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { updateDefaultAccount, deleteAccount } from "@/actions/account";

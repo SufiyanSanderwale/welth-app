@@ -37,7 +37,7 @@ import { defaultCategories } from "@/data/categories";
 
 export function AddTransactionForm({
   accounts,
-  categories,
+  categories: _categories,
   editMode = false,
   initialData = null,
   userCurrency = "INR",

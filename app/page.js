@@ -125,7 +125,7 @@ const LandingPage = () => {
                       </div>
                     </div>
                   </div>
-                  <p className="text-slate-600 leading-relaxed italic">"{testimonial.quote}"</p>
+                  <p className="text-slate-600 leading-relaxed italic">&ldquo;{testimonial.quote}&rdquo;</p>
                   <div className="flex items-center mt-4">
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">

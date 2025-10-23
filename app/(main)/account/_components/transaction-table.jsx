@@ -55,7 +55,7 @@ import { formatCurrency } from "@/lib/currency";
 import useFetch from "@/hooks/use-fetch";
 import { BarLoader } from "react-spinners";
 import { useRouter } from "next/navigation";
-import { LoadingWrapper, SkeletonLoader } from "@/components/ui/loading-wrapper";
+import { LoadingWrapper } from "@/components/ui/loading-wrapper";
 
 const ITEMS_PER_PAGE = 10;
 
