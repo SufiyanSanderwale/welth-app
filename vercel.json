@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
   "env": {
     "DATABASE_URL": "@database_url",
     "DIRECT_URL": "@direct_url",
