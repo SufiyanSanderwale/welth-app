@@ -4,7 +4,6 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
 
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 type ChatMessage = {
@@ -92,7 +91,7 @@ export default function FinanceChatbot() {
   );
 
   return (
-    <Card className="rounded-xl shadow p-4 max-w-3xl mx-auto w-full">
+    <div className="rounded-xl shadow p-4 max-w-3xl mx-auto w-full border bg-card text-card-foreground">
       <div className="flex items-center justify-between mb-3">
         <div className="text-lg font-semibold">Welth Finance Chatbot</div>
         {!canUse && (
@@ -147,7 +146,7 @@ export default function FinanceChatbot() {
       <div className="mt-2 text-[10px] text-muted-foreground">
         Tips: Try &quot;How much did I spend this month?&quot;, &quot;Top expense category?&quot;, &quot;Income vs expense summary&quot;, &quot;Investment ideas for beginners&quot;, or &quot;Financial insights based on my spending&quot;.
       </div>
-    </Card>
+    </div>
   );
 }
 
