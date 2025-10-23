@@ -5,6 +5,7 @@ import { db } from "@/lib/prisma";
 import { request } from "@arcjet/next";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
+import { checkUser } from "@/lib/checkUser";
 
 const serializeTransaction = (obj) => {
   const serialized = { ...obj };
@@ -19,16 +20,7 @@ const serializeTransaction = (obj) => {
 
 export async function getUserAccounts() {
   try {
-    const { userId } = await auth();
-    if (!userId) {
-      // Return empty array when no authentication is set up
-      return [];
-    }
-
-    const user = await db.user.findUnique({
-      where: { clerkUserId: userId },
-    });
-
+    const user = await checkUser();
     if (!user) {
       return [];
     }
@@ -87,10 +79,7 @@ export async function createAccount(data) {
       throw new Error("Request blocked");
     }
 
-    const user = await db.user.findUnique({
-      where: { clerkUserId: userId },
-    });
-
+    const user = await checkUser();
     if (!user) {
       throw new Error("User not found");
     }
@@ -144,16 +133,7 @@ export async function createAccount(data) {
 
 export async function getDashboardData() {
   try {
-    const { userId } = await auth();
-    if (!userId) {
-      // Return empty array when no authentication is set up
-      return [];
-    }
-
-    const user = await db.user.findUnique({
-      where: { clerkUserId: userId },
-    });
-
+    const user = await checkUser();
     if (!user) {
       return [];
     }
