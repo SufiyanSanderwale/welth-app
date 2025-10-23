@@ -3,6 +3,7 @@ import { AccountCard } from "../dashboard/_components/account-card";
 import { CreateAccountDrawer } from "@/components/create-account-drawer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus } from "lucide-react";
+export const dynamic = 'force-dynamic';
 import { getUserCurrency } from "@/actions/currency";
 
 export default async function AccountsIndexPage() {

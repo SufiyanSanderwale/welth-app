@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+export const dynamic = 'force-dynamic';
+
 import { getUserCurrency } from "@/actions/currency";
 import CurrencySettings from "@/components/currency-settings";
 import { updateUserCurrency } from "@/actions/currency";

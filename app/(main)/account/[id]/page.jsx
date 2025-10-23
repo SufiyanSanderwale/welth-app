@@ -4,6 +4,8 @@ import { BarLoader } from "react-spinners";
 import { VirtualizedTransactionTable } from "../_components/virtualized-transaction-table";
 import { notFound } from "next/navigation";
 import { AccountChart } from "../_components/account-chart";
+export const dynamic = 'force-dynamic';
+
 import { getUserCurrency } from "@/actions/currency";
 import { formatCurrency } from "@/lib/currency";
 
