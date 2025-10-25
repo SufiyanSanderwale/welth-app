@@ -257,8 +257,8 @@ export default function SMSExpenseTracker() {
           <div className="space-y-2 text-sm">
             <div>1. 📱 Install this app on your phone</div>
             <div>2. 🔔 Grant notification permissions</div>
-            <div>3. 📋 Copy bank SMS and paste in "Manual SMS Input"</div>
-            <div>4. 🔍 Click "Process SMS" to detect transactions</div>
+            <div>3. 📋 Copy bank SMS and paste in &quot;Manual SMS Input&quot;</div>
+            <div>4. 🔍 Click &quot;Process SMS&quot; to detect transactions</div>
             <div>5. 📊 Transactions will be automatically added to your dashboard</div>
           </div>
         </CardContent>
