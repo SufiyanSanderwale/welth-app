@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import EmailTemplate from "@/emails/template";
 import { sendEmail } from "@/actions/send-email";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);

@@ -15,6 +15,16 @@ const nextConfig = {
     },
   },
 
+  // Output verbose logs and source maps for debugging
+  devIndicators: {
+    position: 'bottom-right',
+  },
+  productionBrowserSourceMaps: true,
+  
+  // Help with chunk loading
+  crossOrigin: 'anonymous',
+  assetPrefix: '',
+  
   // Ensure Next picks this project as the root during dev
   turbopack: {
     root: process.cwd(),
@@ -25,10 +35,12 @@ const nextConfig = {
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://192.168.56.1:3000",
+    "http://192.168.1.163:3000",
+    // Add common emulator host mappings so emulator/device origins are accepted by Next dev
+    "http://10.0.2.2:3000",
+    "http://10.0.3.2:3000",
   ],
 
-  // ✅ yeh line add karo
-  productionBrowserSourceMaps: true,
 };
 
 export default nextConfig;

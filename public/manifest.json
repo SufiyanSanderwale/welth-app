@@ -1,0 +1,34 @@
+{
+  "name": "WELTH Finance - SMS Expense Tracker",
+  "short_name": "WELTH Finance",
+  "description": "Automatic income/expense tracking from SMS",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "productivity"],
+  "permissions": [
+    "notifications",
+    "storage"
+  ],
+  "features": [
+    "SMS-based expense tracking",
+    "Automatic transaction detection",
+    "Offline support"
+  ]
+}

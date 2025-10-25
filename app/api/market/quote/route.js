@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic';
+
 // Free tier source: Financial Modeling Prep (FMP)
 // Docs: https://site.financialmodelingprep.com/developer/docs/
 // Get API key (free) and add to .env.local as FMP_API_KEY

@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { db } from '@/lib/prisma';
 import { auth } from '@clerk/nextjs/server';
 
+export const dynamic = 'force-dynamic';
+
 function generateBasicInsights(transactions) {
   if (transactions.length === 0) {
     return `💡 **Getting Started with Financial Management:**

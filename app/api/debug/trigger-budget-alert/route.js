@@ -1,7 +1,7 @@
-"use server";
-
 import { inngest } from "@/lib/inngest/client";
 import { NextResponse } from "next/server";
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
     try {

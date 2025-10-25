@@ -11,6 +11,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Welth",
   description: "One stop Finance Platform",
+  manifest: "/manifest.json",
+  themeColor: "#000000",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "WELTH Finance"
+  }
 };
 
 export default function RootLayout({ children }) {
@@ -22,6 +30,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="/logo-sm.png" sizes="any" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="WELTH Finance" />
+        <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body className={`${inter.className} bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen`}>
         <DevErrorSilencer />

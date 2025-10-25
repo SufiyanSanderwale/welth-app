@@ -3,6 +3,8 @@ import { sendEmail } from "@/actions/send-email";
 import { db } from "@/lib/prisma";
 import EmailTemplate from "@/emails/template";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
     try {
         if (!process.env.RESEND_API_KEY) {

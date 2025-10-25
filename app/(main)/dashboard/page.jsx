@@ -17,6 +17,7 @@ import ErrorBoundary from "./_components/error-boundary";
 import { CardSkeleton } from "@/components/ui/loading-wrapper";
 import AnimatedWrapper from "@/components/ui/animated-wrapper";
 import AnimatedCard from "@/components/ui/animated-card";
+import SMSExpenseTracker from "@/components/SMSExpenseTracker";
 
 export default async function DashboardPage() {
   const [accounts, transactions, userCurrency] = await Promise.all([
@@ -127,8 +128,17 @@ export default async function DashboardPage() {
         </Suspense>
       </AnimatedWrapper>
 
-      {/* Economic Calendar */}
+      {/* SMS Expense Tracker */}
       <AnimatedWrapper delay={0.5}>
+        <Suspense fallback={<CardSkeleton />}>
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200/50 overflow-hidden">
+            <SMSExpenseTracker />
+          </div>
+        </Suspense>
+      </AnimatedWrapper>
+
+      {/* Economic Calendar */}
+      <AnimatedWrapper delay={0.6}>
         <ErrorBoundary>
           <Suspense fallback={<CardSkeleton />}>
             <div className="bg-white rounded-2xl shadow-lg border border-slate-200/50 overflow-hidden">
@@ -139,7 +149,7 @@ export default async function DashboardPage() {
       </AnimatedWrapper>
 
       {/* Accounts Grid */}
-      <AnimatedWrapper delay={0.6}>
+      <AnimatedWrapper delay={0.7}>
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-slate-800 mb-4">Your Accounts</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
