@@ -76,7 +76,14 @@ export default function SMSExpenseTracker() {
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*charged/i,
       /(\d+(?:\.\d{2})?)\s*Rs\.?\s*debited/i,
       /(\d+(?:\.\d{2})?)\s*Rs\.?\s*spent/i,
-      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*paid/i
+      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*paid/i,
+      // Patterns without Rs prefix
+      /(\d+(?:\.\d{2})?)\s*debited/i,
+      /(\d+(?:\.\d{2})?)\s*spent/i,
+      /(\d+(?:\.\d{2})?)\s*paid/i,
+      /(\d+(?:\.\d{2})?)\s*withdrawn/i,
+      /(\d+(?:\.\d{2})?)\s*deducted/i,
+      /(\d+(?:\.\d{2})?)\s*charged/i
     ];
     
     const incomePatterns = [
@@ -87,7 +94,13 @@ export default function SMSExpenseTracker() {
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*transferred/i,
       /(\d+(?:\.\d{2})?)\s*Rs\.?\s*credited/i,
       /(\d+(?:\.\d{2})?)\s*Rs\.?\s*received/i,
-      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*deposited/i
+      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*deposited/i,
+      // Patterns without Rs prefix
+      /(\d+(?:\.\d{2})?)\s*credited/i,
+      /(\d+(?:\.\d{2})?)\s*received/i,
+      /(\d+(?:\.\d{2})?)\s*deposited/i,
+      /(\d+(?:\.\d{2})?)\s*added/i,
+      /(\d+(?:\.\d{2})?)\s*transferred/i
     ];
     
     // Check for expense patterns
@@ -220,6 +233,10 @@ export default function SMSExpenseTracker() {
               <p>• Rs. 5000 received</p>
               <p>• Rs. 1500 withdrawn</p>
               <p>• Rs. 2000 deposited</p>
+              <p><strong>Or without Rs.:</strong></p>
+              <p>• 500 debited from account</p>
+              <p>• 1000 credited to account</p>
+              <p>• 250 spent at store</p>
             </div>
           </div>
         </CardContent>
