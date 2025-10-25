@@ -11,14 +11,6 @@ const config: CapacitorConfig = {
     hostname: '192.168.1.163'
   },
   android: {
-    webView: {
-      debugEnabled: true,
-      allowFileAccess: true,
-      allowFileAccessFromFileURLs: true,
-      allowUniversalAccessFromFileURLs: true,
-      textZoom: 100,
-      mixedContentMode: 'always'
-    },
     allowMixedContent: true,
     captureInput: true,
     webContentsDebuggingEnabled: true
