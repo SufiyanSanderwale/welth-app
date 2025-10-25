@@ -65,13 +65,18 @@ export default function SMSExpenseTracker() {
   };
 
   const processSMS = (text) => {
+    console.log('Processing SMS:', text);
+    
     const expensePatterns = [
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*debited/i,
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*spent/i,
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*paid/i,
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*withdrawn/i,
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*deducted/i,
-      /Rs\.?\s*(\d+(?:\.\d{2})?)\s*charged/i
+      /Rs\.?\s*(\d+(?:\.\d{2})?)\s*charged/i,
+      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*debited/i,
+      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*spent/i,
+      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*paid/i
     ];
     
     const incomePatterns = [
@@ -79,13 +84,17 @@ export default function SMSExpenseTracker() {
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*received/i,
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*deposited/i,
       /Rs\.?\s*(\d+(?:\.\d{2})?)\s*added/i,
-      /Rs\.?\s*(\d+(?:\.\d{2})?)\s*transferred/i
+      /Rs\.?\s*(\d+(?:\.\d{2})?)\s*transferred/i,
+      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*credited/i,
+      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*received/i,
+      /(\d+(?:\.\d{2})?)\s*Rs\.?\s*deposited/i
     ];
     
     // Check for expense patterns
     for (const pattern of expensePatterns) {
       const match = text.match(pattern);
       if (match) {
+        console.log('Expense pattern matched:', pattern, match);
         const amount = parseFloat(match[1]);
         const newTransaction = {
           id: Date.now(),
@@ -104,6 +113,7 @@ export default function SMSExpenseTracker() {
     for (const pattern of incomePatterns) {
       const match = text.match(pattern);
       if (match) {
+        console.log('Income pattern matched:', pattern, match);
         const amount = parseFloat(match[1]);
         const newTransaction = {
           id: Date.now(),
@@ -118,18 +128,22 @@ export default function SMSExpenseTracker() {
       }
     }
     
+    console.log('No pattern matched for:', text);
     return false;
   };
 
   const handleManualSMS = () => {
     if (smsText.trim()) {
+      console.log('Processing manual SMS:', smsText);
       const processed = processSMS(smsText);
       if (processed) {
         setSmsText('');
         alert('✅ Transaction detected and added!');
       } else {
-        alert('❌ No transaction pattern found in SMS. Please check the format.');
+        alert('❌ No transaction pattern found in SMS. Please check the format.\n\nTry: "Rs. 1000 credited to your account"');
       }
+    } else {
+      alert('Please enter some text first!');
     }
   };
 
